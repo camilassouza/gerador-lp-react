@@ -1,13 +1,13 @@
 import P from 'prop-types';
 import * as Styled from './styles';
-export const Dummy = ({ children }) => {
+export const TextComponent = ({ children }) => {
     return (
         <Styled.Container>
-            <h1>{children}</h1>
+        {children}
         </Styled.Container>
     );
 }; 
 
-Dummy.propTypes = {
+TextComponent.propTypes = {
     children: P.node.isRequired
 };
