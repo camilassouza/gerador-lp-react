@@ -5,6 +5,7 @@ const config = {
     "../src/**/*.stories.@(js|jsx|mjs|ts|tsx)",
     "../src/**/stories.@(js|jsx|mjs|ts|tsx)"
   ],
+
   addons: [
     "@storybook/preset-create-react-app",
     "@storybook/addon-onboarding",
@@ -13,10 +14,18 @@ const config = {
     "@chromatic-com/storybook",
     "@storybook/addon-interactions",
   ],
+
   framework: {
     name: "@storybook/react-webpack5",
     options: {},
   },
+
   staticDirs: ["../public"],
+
+  docs: {},
+
+  typescript: {
+    reactDocgen: "react-docgen-typescript"
+  }
 };
 export default config;
