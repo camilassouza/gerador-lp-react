@@ -3,10 +3,17 @@ import * as Styled from './styles';
 import { MenuLink } from '../MenuLink';
 
 export const NavLinks = ({ links = [] }) => {
+  const transformedLinks = links.map(link => ({
+    id: link.id,
+    children: link.link_text,
+    link: link.url, 
+    newTab: link.open_new_tab, 
+  }));
+
   return (
     <Styled.Container>
-      {links.map((link) => (
-        <MenuLink key={link.link} {...link} />
+      {transformedLinks.map((link) => (
+        <MenuLink key={link.id} {...link} />
       ))}
     </Styled.Container>
   );
@@ -15,9 +22,10 @@ export const NavLinks = ({ links = [] }) => {
 NavLinks.propTypes = {
   links: P.arrayOf(
     P.shape({
-      children: P.string.isRequired,
-      link: P.string.isRequired,
-      newTab: P.bool,
+      id: P.number.isRequired,
+      link_text: P.string.isRequired,
+      url: P.string.isRequired,
+      open_new_tab: P.bool,
     }),
   ),
 };
