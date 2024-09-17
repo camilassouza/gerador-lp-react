@@ -13,7 +13,6 @@ export const mapMenu = (menu = {}) => {
       text,
       link,
       srcImg,
-      links: mapMenuLinks(links),
     };
   };
   

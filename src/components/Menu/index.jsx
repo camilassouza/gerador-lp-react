@@ -9,7 +9,6 @@ import { Close as CloseIcon } from '@styled-icons/material-outlined/Close';
 
 
 export const Menu = ({ links = [], logoData }) => {
-    console.log('links', links)
     const [visible, setVisibles] = useState(false)
 
     return (
