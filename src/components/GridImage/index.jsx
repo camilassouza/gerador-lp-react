@@ -2,20 +2,18 @@ import P from 'prop-types';
 import * as Styled from './styles';
 import { SectionBackground } from '../SectionBackground';
 import { Heading } from '../Headings';
-import { TextComponent } from '../TextComponent';
 
-export const GridImage = ({ title, description, grid, background = false }) => {
+export const GridImage = ({ title, image, background = false }) => {
     return (
     <SectionBackground background={background}>
         <Styled.Container>
-          <Heading size="huge" uppercase colorDark={!background} as="h2">
+          <Heading size="huge" uppercase colordark={!background} as="h2">
             {title}
           </Heading>
-          <TextComponent>{description}</TextComponent>
           <Styled.Grid>
-            {grid.map((el) => (
+            {image.data.map((el) => (
               <Styled.GridElement key={`${el.srcImg}${el.altText}`}>
-                <Styled.Image src={el.srcImg} alt={el.altText} />
+                <Styled.Image src={`http://localhost:1337${el.attributes.url}`} alt={el.attributes.altText} />
               </Styled.GridElement>
             ))}
           </Styled.Grid>

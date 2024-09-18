@@ -55,30 +55,28 @@ function Home() {
   >
       {sections.map((section, index) => {
         const component = section.__component;
+        console.log(section)
+
         if(component === 'section.section-two-colomns') {
           return <GridTwoColum key={index} {...section}></GridTwoColum>
         }
 
         if(component === 'section.section-content') {
-          console.log(section)
           return <GridContent key={index} {...section}></GridContent>
         }
-
+        
         if(component === 'section.section-grid') {
-           return <GridSection key={index} {...section}></GridSection>
+          return <GridSection key={index} {...section}></GridSection>
         }
-
-        if(component === 'section.section-text') {
-         return <GridText key={index} {...section}></GridText>
+        
+        if(component === 'section.section-text' || component === 'section.text-grid')  {
+          return <GridText key={index} {...section}></GridText>
         }
-
-        if(component === 'section.section-image') {
-          return <GridImage key={index} {...section}></GridImage>
+        
+        if(component === 'section.section-image' || component === 'section.image-grid' ) {
+           return <GridImage key={index} {...section}></GridImage>
         }
       } )}
-    <h1>ola mundo</h1>
-    <h1>ola mundo</h1>
-    <h1>ola mundo</h1>
   </Base>
 }
 

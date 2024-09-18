@@ -4,24 +4,14 @@ import { SectionBackground } from '../SectionBackground';
 import { Heading } from '../Headings';
 import { TextComponent } from '../TextComponent';
 
-export const GridText = ({ title, description, grid, background = false }) => {
+export const GridText = ({ title, description, background = false }) => {
   return (
     <SectionBackground background={background}>
       <Styled.Container>
-        <Heading size="huge" uppercase colorDark={!background}>
+        <Heading size="huge" uppercase colordark={!background}>
           {title}
         </Heading>
         <TextComponent>{description}</TextComponent>
-        <Styled.Grid>
-          {grid.map((el) => (
-            <Styled.GridElement key={el.title}>
-              <Heading size="medium" colorDark={!background}>
-                {el.title}
-              </Heading>
-              <TextComponent>{el.description}</TextComponent>
-            </Styled.GridElement>
-          ))}
-        </Styled.Grid>
       </Styled.Container>
     </SectionBackground>
   );
