@@ -1,11 +1,15 @@
 import { GridContent } from '.';
 
-import mock from './mock';
+// import mock from './mock';
 
+// eslint-disable-next-line import/no-anonymous-default-export
 export default {
   title: 'GridContent',
   component: GridContent,
-  args: mock,
+  args: {
+    title: '',
+    metadata: {}
+  },
 };
 
 export const Template = (args) => {

@@ -5,11 +5,16 @@ export const Container = styled.div`
     text-align: center;
     max-width: 58rem;
     margin: 0 auto;
+    margin: ${theme.spacings.xhuge} 0;
+
   `}
 `;
 
-export const Html = styled.div`
+export const Html = styled.html`
   ${({ theme }) => css`
-    margin: ${theme.spacings.xhuge} 0;
+
+    iframe {
+      width: 100%
+    }
   `}
 `;

@@ -1,19 +1,32 @@
 import P from 'prop-types';
 import { Heading } from '../Headings';
 import { SectionBackground } from '../SectionBackground';
-import { TextComponent } from '../TextComponent';
 import * as Styled from './styles';
 
-export const GridContent = ({ title, html, background = false }) => {
+export const GridContent = ({ title, metadata, content }) => {
+  const { background } = metadata;
+
+  // Função para converter o conteúdo em string HTML
+  const convertContentToHtml = (content) => {
+    return content.map(block => {
+      if (block.type === 'paragraph') {
+        return `${block.children.map(child => child.text).join('')}`;
+      }
+      return '';
+    }).join('');
+  };
+
+  const html = convertContentToHtml(content);
+
   return (
     <SectionBackground background={background}>
       <Styled.Container>
-        <Heading uppercase colorDark={!background} as="h2"> 
+        <Heading uppercase colordark={!background} as="h2"> 
           {title}
         </Heading>
-        <Styled.Html>
-          <TextComponent>{html}</TextComponent>
-        </Styled.Html>
+        <Styled.Html
+          dangerouslySetInnerHTML={{ __html: html }}
+        />
       </Styled.Container>
     </SectionBackground>
   );
@@ -21,6 +34,13 @@ export const GridContent = ({ title, html, background = false }) => {
 
 GridContent.propTypes = {
   title: P.string.isRequired,
-  html: P.string.isRequired,
-  background: P.bool,
+  metadata: P.shape({
+    background: P.bool
+  }).isRequired,
+  content: P.arrayOf(P.shape({
+    type: P.string.isRequired,
+    children: P.arrayOf(P.shape({
+      text: P.string.isRequired
+    })).isRequired
+  })).isRequired
 };

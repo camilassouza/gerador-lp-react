@@ -4,7 +4,7 @@ import { PageNotFound } from '../PageNotFound/index';
 import { Loading } from '../Loading';
 import { GridTwoColum } from '../../components/GridTwoColums';
 import { GridContent } from '../../components/GridContent';
-// import { GridSection } from '../../components/GridSection';
+ import { GridSection } from '../../components/GridSection';
 import { GridImage } from '../../components/GridImage';
 import { GridText } from '../../components/GridText';
 
@@ -55,18 +55,18 @@ function Home() {
   >
       {sections.map((section, index) => {
         const component = section.__component;
-        console.log('section', section)
         if(component === 'section.section-two-colomns') {
           return <GridTwoColum key={index} {...section}></GridTwoColum>
         }
 
         if(component === 'section.section-content') {
+          console.log(section)
           return <GridContent key={index} {...section}></GridContent>
         }
 
         if(component === 'section.section-grid') {
-          //   return <GridSection key={index} {...section}></GridSection>
-           }
+           return <GridSection key={index} {...section}></GridSection>
+        }
 
         if(component === 'section.section-text') {
          return <GridText key={index} {...section}></GridText>
