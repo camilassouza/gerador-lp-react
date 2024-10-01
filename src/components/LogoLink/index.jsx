@@ -6,7 +6,7 @@ export const LogoLink = ({ logo_text, logo }) => {
   return (
     <Heading size="small" uppercase>
       <Styled.Container href={'link'}>
-       {logo.data ? <img src={`http://localhost:1337${logo.data.attributes.url}`} /> : logo_text}
+       {logo.data ? <img alt="logo" src={`http://localhost:1337${logo.data.attributes.url}`} /> : logo_text}
       </Styled.Container>
     </Heading>
   );
