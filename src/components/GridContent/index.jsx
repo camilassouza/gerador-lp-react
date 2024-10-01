@@ -4,7 +4,7 @@ import { SectionBackground } from '../SectionBackground';
 import * as Styled from './styles';
 
 export const GridContent = ({ title, metadata, content }) => {
-  const { background } = metadata;
+  const background = metadata?.background || false;
 
   // Função para converter o conteúdo em string HTML
   const convertContentToHtml = (content) => {
